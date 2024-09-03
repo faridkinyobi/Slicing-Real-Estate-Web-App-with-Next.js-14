@@ -1,0 +1,9 @@
+{
+    "HomePage":"Beranda",
+    "menu":{
+        "HomePage":"Beranda",
+        "Listings":"Listing",
+        "Agents":"Agent",
+        "My Favorites":"Favorit Saya"
+    }
+}

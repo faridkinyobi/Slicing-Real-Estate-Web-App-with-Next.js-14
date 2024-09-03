@@ -1,0 +1,9 @@
+{
+    "HomePage":"HomePage",
+    "menu":{
+        "HomePage":"HomePage",
+        "Listings":"Listings",
+        "Agents":"Agents",
+        "My Favorites":"My Favorites"
+    }
+}
