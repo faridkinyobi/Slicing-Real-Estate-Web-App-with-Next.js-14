@@ -13,7 +13,7 @@ export default function SearchForm({
       <input
         placeholder={placeholder}
         type="text"
-        className={`input w-full ${inputClaname} placeholder:text-sm`}
+        className={`input w-full ${inputClaname} placeholder:text-sm text-gray-900` }
       />
       <button className={`btn btn-primary ${btnClaname}`}>Search</button>
     </div>
