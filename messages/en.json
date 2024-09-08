@@ -1,9 +1,47 @@
 {
-    "HomePage":"HomePage",
+    "Search":"Search",
     "menu":{
         "HomePage":"HomePage",
         "Listings":"Listings",
         "Agents":"Agents",
         "My Favorites":"My Favorites"
+    },
+    "HomePageTop":{
+        "Find Your Dream Home Today":"Find Your Dream Home Today",
+        "Explore our extensive listings end find the perfect property for you":"Explore our extensive listings end find the perfect property for you"
+    },
+    "HomePageTitel":{
+        "Why Choose Us":"Why Choose Us",
+        "Browse Properties":"Browse Properties"
+    },
+    "WhyChooseUs":{
+        "Property Insurance": "Property Insurance",
+        "Property Insurance Description": "We offer our customer property protection of liability coverage and insurance for their better life.",
+        "Best Price":"Best Price",
+        "Best Price Description":"Not sure what you should be charging for your property? No need to worry, let us do the numbers for you.",
+        "Overall Control":"Overall Control",
+        "Overall Control Description":"Get a virtual tour, and schedule visits before you rent or buy any properties. You get overall control."
+    },
+    "CallToAction":{
+        "Cuntact Us":"Cuntact Us",
+        "You’ve found a neighbour you love":"You’ve found a neighbour you love",
+        "Tired of looking ? Contact us for Recommendation":"Tired of looking ? Contact us for Recommendation",
+        "Description":"When you owned home, you’re comitting to living in one location for a while. In a recent Trulia survey, we found that five out of six respondents said finding the right neighbourhood"
+    },
+    "footer":{
+        "Description":"When you owned home, you’re comitting to living in one location for a while. In a recent Trulia survey, we found that five out of six respondents said finding the right neighbourhood",
+        "Menu":"Menu",
+        "Contact Us":"Contact Us",
+        "Dream Homes Realty":"Dream Homes Realty."
+    },
+    "listings":{
+        "Browse Properties":"Browse Properties",
+        "found properties":"found properties"
+    },
+    "Agent":{
+        "Our Agent":"Our Agent",
+        "Browse Agents":"Browse Agents",
+        "Explore our extensive listings and find the perfect property for you":"Explore our extensive listings and find the perfect property for you",
+        "Search Agent Name":"Search Agent Name..."
     }
 }

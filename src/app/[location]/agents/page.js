@@ -3,8 +3,9 @@ import AgentsLists from "@/components/Features/Agents/AgentsLists";
 import BaseLayout from "@/components/Layouts/BaseLayouts";
 import CallToAction from "@/components/UI/CallToAction";
 import SearchForm from "@/components/UI/SearchForm";
-
+import { useTranslations } from "next-intl";
 export default function AgentsPage() {
+  const t = useTranslations("Agent")
   return (
     <BaseLayout theme="dark">
       <div
@@ -19,18 +20,17 @@ export default function AgentsPage() {
         <div className="custom-container text-center text-white  space-y-6">
           <div className=" space-y-2 text">
             <h1 className="text-4xl md:text-6xl font-bold leading-relaxed md:max-w-[585px] md:mx-auto md:leading-[1.5]">
-              Our Agent
+              {t("Our Agent")}
             </h1>
             <p className="leading-relaxed md:text-xl">
-              Explore our extensive listings and find the perfect property for
-              you
+              {t("Explore our extensive listings and find the perfect property for you")}
             </p>
           </div>
-          <SearchForm placeholder="Search Agent Name..." />
+          <SearchForm placeholder={t("Search Agent Name")} />
         </div>
       </div>
       <section className="custom-container py-6 space-y-6 md:space-y-12 md:py-12">
-        <h2 className="font-bold text-xl md:text-2xl">Browse Agents</h2>
+        <h2 className="font-bold text-xl md:text-2xl">{t("Browse Agents")}</h2>
         {/* agents list */}
         <AgentsLists />
         <CallToAction

@@ -1,13 +1,14 @@
-import Image from "next/image";
-import Footer from "@/components/Footer/Index";
-import Header from "@/components/Header/Index";
+"use client";
 import ChooseCard from "@/components/Features/HomePage/ChooseCard";
-import PropertyCard from "@/components/UI/PropertyCard";
 import BaseLayouts from "@/components/Layouts/BaseLayouts";
 import SearchForm from "@/components/UI/SearchForm";
 import PropertyLists from "@/components/Lists/PropertyLists";
 import CallToAction from "@/components/UI/CallToAction";
+import { useTranslations } from "next-intl";
 export default function page() {
+  const t = useTranslations("HomePageTop", "WhyChooseUs");
+  const tj = useTranslations("HomePageTitel");
+
   return (
     <BaseLayouts theme="dark" className="">
       <div
@@ -22,11 +23,12 @@ export default function page() {
         <div className="custom-container text-center text-white  space-y-6">
           <div className=" space-y-2 text">
             <h1 className="text-4xl md:text-6xl font-bold leading-relaxed md:max-w-[585px] md:mx-auto md:leading-[1.5]">
-              Find Your Dream Home Today
+              {t("Find Your Dream Home Today")}
             </h1>
             <p className="leading-relaxed md:text-xl">
-              Explore our extensive listings end find the perfect property for
-              you
+              {t(
+                "Explore our extensive listings end find the perfect property for you"
+              )}
             </p>
           </div>
           <SearchForm />
@@ -35,24 +37,24 @@ export default function page() {
       <section className="py-12">
         <div className=" custom-container space-y-6 md:space-y-12">
           <h2 className="text-2xl md:text-4xl font-bold text-center">
-            Why Choose Us
+            {tj("Why Choose Us")}
           </h2>
           <div className=" grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* card */}
             <ChooseCard
               image="/asset/icon-1.png"
               title="Property Insurance"
-              description="We offer our customer property protection of liability coverage and insurance for their better life."
+              description="Property Insurance Description"
             />
             <ChooseCard
               image="/asset/icon-2.png"
               title="Best Price"
-              description="Not sure what  you should be charging for your property? No need to worry, let us do the numbers for you."
+              description="Best Price Description"
             />
             <ChooseCard
               image="/asset/icon-3.png"
               title="Overall Control"
-              description="Get a virtual tour, and schedule visits before you rent or buy any properties. You get overall control."
+              description="Overall Control Description"
             />
           </div>
         </div>
@@ -61,7 +63,7 @@ export default function page() {
         <div className=" custom-container space-y-6 md:space-y-12">
           <div className="space-y-6 md:space-y-8">
             <h2 className="text-2xl md:text-4xl font-bold">
-              Browse Properties
+              {tj("Browse Properties")}
             </h2>
             {/* locations */}
             <div className="flex gap-2 ">
@@ -75,7 +77,10 @@ export default function page() {
           <PropertyLists />
         </div>
       </section>
-      <CallToAction />
+      <CallToAction
+        imge="/asset/image-1.png"
+        title="You’ve found a neighbour you love"
+      />
     </BaseLayouts>
   );
 }

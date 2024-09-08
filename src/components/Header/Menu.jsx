@@ -11,7 +11,7 @@ export default function Menu({ scrolled }) {
       }`}
     >
       <li>
-        <NavLink href="">{t("HomePage")}</NavLink>
+        <NavLink href="/">{t("HomePage")}</NavLink>
       </li>
       <li>
         <NavLink href="/listings">{t("Listings")}</NavLink>

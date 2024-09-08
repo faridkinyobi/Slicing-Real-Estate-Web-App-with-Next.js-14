@@ -1,9 +1,47 @@
 {
-    "HomePage":"Beranda",
+    "Search":"Mencari",
     "menu":{
         "HomePage":"Beranda",
         "Listings":"Listing",
         "Agents":"Agent",
         "My Favorites":"Favorit Saya"
+    },
+    "HomePageTop":{
+        "Find Your Dream Home Today":"Temukan Rumah Impian Anda Hari Ini",
+        "Explore our extensive listings end find the perfect property for you":"Jelajahi daftar lengkap kami dan temukan properti yang sempurna untuk Anda"
+    },
+    "HomePageTitel":{
+        "Why Choose Us":"Mengapa Memilih Kami",
+        "Browse Properties":"Jelajahi Properti"
+    },
+    "WhyChooseUs":{
+        "Property Insurance": "Asuransi Properti",
+        "Property Insurance Description": "Kami menawarkan perlindungan properti pelanggan kami dari pertanggungan kewajiban dan asuransi untuk kehidupan mereka yang lebih baik.",
+        "Best Price":"Harga terbaik",
+        "Best Price Description":"Tidak yakin apa yang harus Anda kenakan untuk properti Anda? Tidak perlu khawatir, biarkan kami melakukan angkanya untuk Anda.",
+        "Overall Control":"Kontrol Keseluruhan",
+        "Overall Control Description":"Dapatkan tur virtual, dan jadwalkan kunjungan sebelum Anda menyewa atau membeli properti apa pun. Anda mendapatkan kontrol keseluruhan."
+    },
+    "CallToAction":{
+        "Cuntact Us":"Hubungi kami",
+        "You’ve found a neighbour you love":"Anda telah menemukan tetangga yang Anda cintai",
+        "Tired of looking ? Contact us for Recommendation":"Bosan melihat? Hubungi kami untuk Rekomendasi",
+        "Description":"Ketika Anda memiliki rumah, Anda akan tinggal di satu lokasi untuk sementara waktu. Dalam survei Trulia baru-baru ini, kami menemukan bahwa lima dari enam responden mengatakan menemukan lingkungan yang tepat"
+    },
+    "footer":{
+        "Description":"Ketika Anda memiliki rumah, Anda akan tinggal di satu lokasi untuk sementara waktu. Dalam survei Trulia baru-baru ini, kami menemukan bahwa lima dari enam responden mengatakan menemukan lingkungan yang tepat",
+        "Menu":"Menu",
+        "Contact Us":"Hubungi",
+        "Dream Homes Realty":"Rumah Impian Realitas."
+    },
+    "listings":{
+        "Browse Properties":"Jelajahi Properti",
+        "found properties":"Properti yang ditemukan"
+    },
+    "Agent":{
+        "Our Agent":"Agen kami",
+        "Browse Agents":"Jelajahi Agen",
+        "Explore our extensive listings and find the perfect property for you":"Jelajahi daftar lengkap kami dan temukan properti yang sempurna untuk Anda",
+        "Search Agent Name":"Cari Nama Agen..."
     }
 }
