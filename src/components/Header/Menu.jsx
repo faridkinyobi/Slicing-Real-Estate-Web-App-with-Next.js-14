@@ -20,7 +20,7 @@ export default function Menu({ scrolled }) {
         <NavLink href="/agents">{t("Agents")}</NavLink>
       </li>
       <li>
-        <NavLink href="/My Favorites">{t("My Favorites")}</NavLink>
+        <NavLink href="/MyFavorites">{t("My Favorites")}</NavLink>
       </li>
       <div className="dropdown dropdown-button md:dropdown-end">
         <div tabIndex={0} role="button" className="cursor-pointer">

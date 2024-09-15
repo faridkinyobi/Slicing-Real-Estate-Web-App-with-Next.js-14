@@ -1,20 +1,22 @@
 import React from "react";
 
-export default function FormSelect() {
+export default function FormSelect({ label, option = [], value, onchange }) {
   return (
     <label className="form-control w-full max-w-xs">
-      <div className="label">
-        <span className="label-text font-semibold">locations</span>
-      </div>
-      <select className="select select-bordered">
-        <option disabled selected>
-        Locations
-        </option>
-        <option>Star Wars</option>
-        <option>Harry Potter</option>
-        <option>Lord of the Rings</option>
-        <option>Planet of the Apes</option>
-        <option>Star Trek</option>
+      {label && (
+        <div className="label md:hidden">
+          <span className="label-text font-semibold">{label}</span>
+        </div>
+      )}
+      <select
+        className="select select-bordered"
+        value={value}
+        onChange={onchange}
+      >
+        <option value="">{label}</option>
+        {option.map((items) => {
+          return <option key={items.value} value={items.value}>{items.label}</option>;
+        })}
       </select>
     </label>
   );

@@ -1,5 +1,7 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import FavoritesProvider from "@/context/FavoritesProvider";
+import NextTopLoader from "nextjs-toploader";
 
 const PlusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -11,7 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="mytheme">
-      <body className={PlusJakartaSans.className}>{children}</body>
+      <body className={PlusJakartaSans.className}>
+        <NextTopLoader />
+        <FavoritesProvider>{children}</FavoritesProvider>
+      </body>
     </html>
   );
 }

@@ -1,12 +1,34 @@
+"use client";
 import GalleryItems from "@/components/Features/Listings/GalleryItems";
 import SpecItem from "@/components/Features/Listings/SpecItem";
 import BaseLayout from "@/components/Layouts/BaseLayouts";
 import PropertyLists from "@/components/Lists/PropertyLists";
 import CallToAction from "@/components/UI/CallToAction";
 import Image from "next/image";
+import properties from "@/components/Data/properties";
+import useMyFavorites from "@/hooks/useMyFavorites";
 import { HiOutlineHeart } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";
-export default function DetailPage() {
+import agents from "@/components/Data/agents";
+import { notFound, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { RiHeartFill, RiHeartLine } from "react-icons/ri";
+
+export default function DetailPage({ params }) {
+  const searchParams = useSearchParams();
+  const agentId = searchParams.get("exclude");
+  const { handleFavorites, handelCheckFavoriters } = useMyFavorites();
+  const { slug } = params;
+
+  const property = properties.find((items) => items.slug === slug);
+
+  const getIdAgents = agents.find(
+    (items) => items.agents_id === parseInt(agentId)
+  );
+  if (!property) {
+    return notFound()
+  }
+
   return (
     <BaseLayout theme="light">
       <div className="custom-container space-y-6">
@@ -14,7 +36,7 @@ export default function DetailPage() {
           <div className="md:w-3/4">
             {/* big Image */}
             <Image
-              src="/asset/product-1.png"
+              src={property?.tumbnail}
               alt="detail"
               width={956}
               height={666}
@@ -24,10 +46,11 @@ export default function DetailPage() {
           <div className="md:w-1/4">
             <div className="flex md:flex-col md:h-[600px] flex-nowrap overflow-x-scroll md:overflow-x-hidden md:overflow-y-scroll Gallery pb-3 gap-4 md:pr-3">
               {/* galleries */}
-              <GalleryItems img="/asset/detail-1.png" />
-              <GalleryItems img="/asset/detail-3.png" />
-              <GalleryItems img="/asset/detail-4.png" />
-              <GalleryItems img="/asset/detail-5.png" />
+              {property.galleries.map((items, index) => {
+                return (
+                  <GalleryItems img={items.image} key={index} alt={items.alt} />
+                );
+              })}
             </div>
           </div>
         </div>
@@ -40,13 +63,11 @@ export default function DetailPage() {
               {/* main info */}
               <div className=" space-y-3 md:flex md:justify-between md:items-center md:space-y-0">
                 <div>
-                  <h1 className="text-2xl font-bold mb-2">
-                    Rumah Classic di Menteng
-                  </h1>
-                  <p className="text-gray-600">Jakarta Barat, DKI Jakarta</p>
+                  <h1 className="text-2xl font-bold mb-2">{property.title}</h1>
+                  <p className="text-gray-600">{property.location}</p>
                 </div>
                 <p className="text-xl">
-                  Rp 2,999,999 /
+                  Rp {property.price}/
                   <span className="text-sm font-normal">month</span>
                 </p>
               </div>
@@ -56,31 +77,16 @@ export default function DetailPage() {
               {/* desc */}
               <div className="md:w-2/3">
                 <h2 className="font-bold text-xl mb-3 md:mb-6">
-                  Northern views in a corner apartment
+                  {property.description_title}
                 </h2>
                 <div className="prose max-w-full text-sm md:text-base">
-                  401/211 DORCAS STREET, SOUTH MELBOURNE Anyone for a BBQ?
-                  imagine soaking up the sun on your huge North facing
-                  entertainer's terrace.
+                  {property.description}
                   <p className="mt-5 mb-[-13px]">Comprising</p>
-                  <ul>
-                    <li>
-                      Two Bedrooms both with built in robes, master with
-                      ensuite.
-                    </li>
-                    <li>Two Bathrooms, with laundry in main.</li>
-                    <li> Air Conditioning for year-round comfort.</li>
-                    <li>
-                      Kitchen with gas cooking, oven and dishwasher finished in
-                      stone and glass.
-                    </li>
-                    <li>25m2+ wrap around paved terrace.</li>
-                    <li>Secure off street car park.</li>
-                    <li>Basement storage cage.</li>
-                    <li>Centrally located in the heart of South Melbourne.</li>
-                    <li>Only moments' walk to Clarendon St shopping strip.</li>
-                    <li>100m to the no12 Tram to Collins.</li>
-                  </ul>
+                  {property.description_list.map((items, index) => (
+                    <ul key={index}>
+                      <li>{items.desc}</li>
+                    </ul>
+                  ))}
                 </div>
               </div>
               {/* spec */}
@@ -90,47 +96,47 @@ export default function DetailPage() {
                   <SpecItem
                     icon="/asset/icons/detail/ic-bed.svg"
                     title="Kamar Tidur"
-                    value="3"
+                    value={property.specification.bed_room}
                   />
                   <SpecItem
                     icon="/asset/icons/detail/ic-bath.svg"
                     title="Kamar Mandi"
-                    value="3"
+                    value={property.specification.bath_room}
                   />
                   <SpecItem
                     icon="/asset/icons/detail/ic-land.svg"
                     title="Luas Tanah"
-                    value="3"
+                    value={property.specification.land_area}
                   />
                   <SpecItem
                     icon="/asset/icons/detail/ic-house.svg"
                     title="Luas Bangunan"
-                    value="3"
+                    value={property.specification.land_house}
                   />
-                  <SpecItem
+                  {/* <SpecItem
                     icon="/asset/icons/detail/ic-apart.svg"
                     title="Tipe Properti"
                     value="3"
-                  />
+                  /> */}
                   <SpecItem
                     icon="/asset/icons/detail/ic-certif.svg"
                     title="Sertifikat"
-                    value="3"
+                    value={property.specification.certificate}
                   />
                   <SpecItem
                     icon="/asset/icons/detail/ic-electric.svg"
                     title="Daya Listrik"
-                    value="3"
+                    value={property.specification.electric}
                   />
                   <SpecItem
                     icon="/asset/icons/detail/ic-period.svg"
                     title="Periode Sewa"
-                    value="3"
+                    value={property.specification.rent_period}
                   />
                   <SpecItem
                     icon="/asset/icons/detail/ic-m2.svg"
                     title="Harga / m2"
-                    value="3"
+                    value={property.specification.price_per_m2}
                   />
                 </div>
               </div>
@@ -141,22 +147,36 @@ export default function DetailPage() {
             <div className="flex gap-3">
               <Image
                 className="w-12 h-12 rounded-full object-cover"
-                src="/asset/agent-1.png"
+                src={getIdAgents?.profile_picture}
                 width={53}
                 height={53}
+                alt="sllsls"
               />
               <div>
-                <p className="font-bold text-lg mb-1">Al Biruni</p>
-                <p className="text-gray-600">Member since 2014</p>
+                <p className="font-bold text-lg mb-1">{getIdAgents?.name}</p>
+                <p className="text-gray-600">
+                  Member since {getIdAgents?.joined_date.split("/").pop()}
+                </p>
               </div>
             </div>
             <div className="space-y-2">
-              <button className="btn btn-success text-white btn-block">
-                <FaWhatsapp className="text-base" />
+              <Link
+                href={`//wa.me/${getIdAgents?.phone}`}
+                className="btn btn-success text-white btn-block"
+              >
+                <FaWhatsapp className="text-xl md:text-2xl" />
                 Contact Agent
-              </button>
-              <button className="btn btn-outline btn-block">
-                <HiOutlineHeart className="text-base" /> Save Property
+              </Link>
+              <button
+                onClick={() => handleFavorites(property)}
+                className="btn btn-outline btn-block"
+              >
+                {handelCheckFavoriters(property.property_id) ? (
+                  <RiHeartFill className="text-primary text-xl md:text-2xl" />
+                ) : (
+                  <RiHeartLine className="text-primary text-xl md:text-2xl" />
+                )}{" "}
+                Save Property
               </button>
             </div>
           </div>

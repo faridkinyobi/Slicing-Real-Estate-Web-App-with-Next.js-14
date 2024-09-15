@@ -5,7 +5,11 @@ import SearchForm from "@/components/UI/SearchForm";
 import PropertyLists from "@/components/Lists/PropertyLists";
 import CallToAction from "@/components/UI/CallToAction";
 import { useTranslations } from "next-intl";
+import { useRouter,usePathname } from "next/navigation";
+import properties from "@/components/Data/properties";
 export default function page() {
+  const router = useRouter();
+  const pathname = usePathname();
   const t = useTranslations("HomePageTop", "WhyChooseUs");
   const tj = useTranslations("HomePageTitel");
 
@@ -67,14 +71,34 @@ export default function page() {
             </h2>
             {/* locations */}
             <div className="flex gap-2 ">
-              <button className="btn btn-location active">Semua Lokasi</button>
-              <button className="btn btn-location">Jakarta</button>
-              <button className="btn btn-location">Surabaya</button>
-              <button className="btn btn-location">Malang</button>
+              <button
+                className="btn btn-location active"
+                onClick={() => router.push(`${pathname}`)}
+              >
+                Semua Lokasi
+              </button>
+              <button
+                className="btn btn-location"
+                onClick={() => router.push(`${pathname}?location=jakarta`)}
+              >
+                Jakarta
+              </button>
+              <button
+                className="btn btn-location"
+                onClick={() => router.push(`${pathname}?location=bali`)}
+              >
+                Bali
+              </button>
+              <button
+                className="btn btn-location"
+                onClick={() => router.push(`${pathname}?location=lombok`)}
+              >
+                Lombok
+              </button>
             </div>
           </div>
           {/* properties */}
-          <PropertyLists />
+          <PropertyLists properties={properties} />
         </div>
       </section>
       <CallToAction

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { HiOutlineMenu } from "react-icons/hi";
 import SideMenu from "./SideMenu";
 import Menu from "./Menu";
+import Link from "next/link";
 export default function Header({theme="light"}) {
   const [SideMenuOpen, setSideMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -28,14 +29,14 @@ export default function Header({theme="light"}) {
   },[theme])
   return (
     <>
-      <header
+      <div
         className={`py-5 z-10 md:py-7 fixed top-0 left-0 w-full transition-all ${
           scrolled ? "bg-white" : "bg-transparent"
         }`}
       >
         <div className="custom-container">
           <div className="flex items-center justify-between ">
-            <div>
+            <Link href={'/'}>
               {scrolled ? (
                 <Image
                   src="/asset/logo.svg"
@@ -51,7 +52,7 @@ export default function Header({theme="light"}) {
                   alt="logo-white"
                 />
               )}
-            </div>
+            </Link>
             <button onClick={hendelOpenMenu}>
               <HiOutlineMenu
                 size={25}
@@ -65,7 +66,7 @@ export default function Header({theme="light"}) {
             </div>
           </div>
         </div>
-      </header>
+      </div>
       <SideMenu SideMenuOpen={SideMenuOpen} hendelOpenMenu={hendelOpenMenu} />
     </>
   );
